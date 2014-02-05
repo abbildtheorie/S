@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript" src="javascript/semantic.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+        $('a.download-button').click(function () {
+          var barWidth = 0
+          ,   downloadBar = $('.download-bar .bar');
+
+          var id = setInterval(function () {
+            var progress = parseInt(Math.random() * 10);
+           
+            if (barWidth >= 100) { 
+              $('.download-bar')
+                .removeClass("active")
+                .addClass("successful");
+
+              clearInterval(id); 
+            }
+
+            if ((barWidth + progress) >= 100) { 
+              progress = 100 - barWidth; 
+            }
+
+            barWidth += progress;
+            downloadBar.width(barWidth + '%');
+          }, 150);
+
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+    <div class="ui red inverted head menu">
+      <a class="active item">
+        <i class="home icon"></i>Home
+      </a>
+      <a class="item">
+        <i class="user icon"></i>My
+      </a>
+    </div>
+
+    <div class="ui vertical segment">
+      <h1 class="ui inverted red block header">S</h1>
+      <div class="ui icon message">
+        <i class="lab icon"></i>
+        <div class="content">
+          <div class="header">
+            I love coding!
+          </div>
+          <p>I favorite any programming language is python.</p>
+        </div>
+      </div>
+      <a class="ui facebook button" href="https://facebook.com/futoase">
+        <i class="facebook icon"></i>
+        Facebook
+      </a>
+      <a class="ui twitter button" href="https://twitter.com/xga">
+        <i class="twitter icon"></i>
+        Twitter
+      </a>
+
+    </div>
+
+    <div class="ui vertical segment">
+      <p>
+        <div class="ui active progress download-bar">
+          <div class="bar"></div>
+        </div>
+      </p>
+      <p>
+        <a class="ui red button download-button">download</a>
+      </p>
+    </div>
+  </body>
+</html>
